@@ -30,7 +30,7 @@ int EditLine(int x,int y,char text[],int maxlen,int w){
 			len++;
 			cur++;
 		}
-		if(k==KEY_CTRL_DEL){
+		if(k==KEY_CTRL_DEL&&len>0){
 			for(i=cur-1;tmp[i];i++)
 				tmp[i]=tmp[i+1];
 			len--;
@@ -41,6 +41,7 @@ int EditLine(int x,int y,char text[],int maxlen,int w){
 		if(k==KEY_CTRL_AC){
 			for(i=0;tmp[i];i++)	tmp[i]=0;
 			len=0;
+			cur=0;
 		}
 		if(k==KEY_CTRL_EXE){
 			for(i=0;tmp[i];i++)	text[i]=tmp[i];
